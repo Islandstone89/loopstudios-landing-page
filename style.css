@@ -1,0 +1,254 @@
+
+/* CSS RESET */
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Prevent font size inflation */
+html {
+  -moz-text-size-adjust: none;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+}
+
+/* Remove default margin in favour of better control in authored CSS */
+body, h1, h2, h3, h4, p,
+figure, blockquote, dl, dd {
+  margin: 0;
+}
+
+/* Remove list styles on ul, ol elements */
+:is(ul, ol) {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+
+/* Set shorter line heights on headings and interactive elements */
+h1, h2, h3, h4,
+button, input, label {
+  line-height: 1.1;
+}
+
+/* Balance text wrapping on headings */
+h1, h2,
+h3, h4 {
+  text-wrap: balance;
+}
+
+/* Avoid orphans on paragraphs */
+p {
+    text-wrap: pretty;
+}
+
+/* A elements that don't have a class get default styles */
+a {
+  text-decoration-skip-ink: auto;
+  color: currentColor;
+  text-decoration: none;
+}
+
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input, button,
+textarea, select {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+/* Make sure textareas without a rows attribute are not tiny */
+textarea:not([rows]) {
+  min-height: 10em;
+}
+
+/* Anything that has been anchored to should have extra scroll margin */
+:target {
+  scroll-margin-block: 5ex;
+}
+
+/* FONTS */
+
+@font-face {
+    font-family: 'Alata';
+    src: url(assets/fonts/Alata-Regular.woff2) format("woff2");
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: 'Josefin Sans';
+    src: url(assets/fonts/JosefinSans-Light.woff2) format("woff2");
+    font-weight: 300;
+}
+
+/* CUSTOM PROPERTIES */
+
+:root {
+    /* COLORS */
+    --clr-white: hsl(0, 0%, 100%);
+    --clr-black: hsl(0, 0%, 0%);
+    --clr-dark-gray: hsl(0, 0%, 55%);
+    --clr-very-dark-gray: hsl(0, 0%, 41%);
+
+    /* TYPOGRAPHY */
+    --ff-alata: 'Alata';
+    --ff-josefin-sans: 'Josefin Sans';
+    --fs-regular: .9rem;
+    --fw-400: 400;
+    --fw-300: 300;
+}
+
+/* UTILITIES */
+
+.flow {
+  --flow-space: 20em;
+}
+
+.flow > * + * {
+  margin-block-start: var(--flow-space, 1em);
+}
+
+.container {
+  width: 75%;
+  margin-inline: auto;
+}
+
+.uppercase {
+    text-transform: uppercase;
+}
+
+/* GENERAL STYLING */
+
+body {
+    font-family: var(--ff-josefin-sans, sans-serif);
+    font-size: var(--fs-regular);
+    background-image: url('images/mobile/image-hero.jpg');
+    background-repeat: no-repeat;
+
+    @media (width > 50rem) {
+      background-image: url('images/desktop/image-hero.jpg');
+    }
+}
+
+/* HEADER */
+
+.header {
+    /* background-color: black; */
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    justify-content: space-between;
+    padding-block: 2rem 3rem;
+}
+
+.main-heading {
+    border: 2px solid var(--clr-white);
+    color: var(--clr-white);
+    padding: 1rem;
+    display: inline-block;
+    max-width: 20ch;
+}
+
+.navbar__list {
+    color: var(--clr-white);
+    display: flex;
+    gap: 1rem;
+}
+
+.intro {
+  display: grid;
+  grid-template-columns: repeat(20, auto);
+  grid-template-rows: repeat(3, 1fr);
+}
+
+.intro-image {
+grid-column: 1 / 12;
+grid-row: 1 / 4;
+}
+
+.intro-text {
+  background-color: var(--clr-white);
+  color: var(--clr-very-dark-gray);
+  grid-column: 10 / 21;
+  grid-row: 2 / 4;
+  padding: 2rem 1rem 0 1rem;
+  max-width: 40ch;
+}
+
+.all-creations {
+    border: 1px solid var(--clr-black);
+    padding: .5em 2em;
+    display: inline-block;
+
+    &:hover {
+        background-color: var(--clr-black);
+        color: var(--clr-white);
+        transition: .2s;
+    }
+}
+
+.image-grid__list {
+    background-color: lightsalmon;
+    color: var(--clr-white);
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+
+    @media (width > 50rem) {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+/* .image-grid__list-item {
+    display: grid;
+    grid-template-areas: 'stack';
+}
+ */
+
+ .image-grid__list-item {
+  position: relative;
+ }
+
+ .image-grid__list-item p {
+  position: absolute;
+  top: 0;
+ }
+
+/* .image-grid__list-item > * {
+    grid-area: stack;
+} */
+
+
+
+
+/* FOOTER */
+
+.footer {
+    background-color: var(--clr-black);
+}
+
+.footer-wrapper {
+  display: flex;
+  justify-content: space-between;
+  padding-block: 2rem;
+}
+
+.social-media {
+    display: flex;
+    gap: 1rem;
+}
+
+.copyright {
+  color: var(--clr-dark-gray);
+}
