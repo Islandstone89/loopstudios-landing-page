@@ -303,6 +303,12 @@ body {
   bottom: 5%;
   left: 5%;
   letter-spacing: .1em;
+  max-width: 10ch;
+  font-size: 1.5rem;
+ }
+
+ .paragraph-short {
+  max-width: 8ch;
  }
 
 
