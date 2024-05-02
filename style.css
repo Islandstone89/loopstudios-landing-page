@@ -101,6 +101,8 @@ textarea:not([rows]) {
     --clr-dark-gray: hsl(0, 0%, 55%);
     --clr-very-dark-gray: hsl(0, 0%, 41%);
 
+    --clr-white-transparent: hsl(from var(--clr-white)h s l / 75%);
+
     /* TYPOGRAPHY */
     --ff-alata: 'Alata';
     --ff-josefin-sans: 'Josefin Sans';
@@ -297,11 +299,22 @@ body {
  .image-grid__list-item {
   position: relative;
   color: var(--clr-white);
+  
 
-/*   &:hover {
+  &:hover {
     color: var(--clr-black);
-  } */
+  }
  }
+
+
+ .image-grid__list-item__link:is(:hover, :focus-visible)::before {
+  background-color: var(--clr-white-transparent);
+  content: "";
+  height: 100%;
+  position: absolute;
+  width: 100%;
+ }
+
 
  .image-grid__list-item__paragraph {
   position: absolute;
