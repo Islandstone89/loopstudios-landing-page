@@ -140,11 +140,11 @@ textarea:not([rows]) {
   background-color: var(--clr-white);
   display: block;
   content: "";
-  width: 20px;
+  width: 50%;
   height: 2px;
   position: absolute;
   bottom: -10px;
-  left: 50%;
+  left: 25%;
 }
 
 :is(.social-media__link):has(:hover, :focus-visible)::after {
