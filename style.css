@@ -114,7 +114,7 @@ textarea:not([rows]) {
 /* UTILITIES */
 
 .flow {
-  --flow-space: 4em;
+  --flow-space: 5em;
 }
 
 .flow > * + * {
@@ -130,7 +130,8 @@ textarea:not([rows]) {
     text-transform: uppercase;
 }
 
-/* GENERAL STYLING */
+
+/* COMPONENTS */
 
 :is(.navbar__list li, .social-media__link) {
   position: relative;
@@ -160,7 +161,30 @@ textarea:not([rows]) {
 .btn {
   background-color: transparent;
   border: none;
+
+  @media (width > 50rem) {
+    display: none;
+  }
 }
+
+.all-creations {
+  border: 2px solid var(--clr-black);
+  padding: .5em 2em;
+  display: inline-block;
+  font-family: var(--ff-alata);
+  letter-spacing: .2em;
+
+  &:hover {
+      background-color: var(--clr-black);
+      color: var(--clr-white);
+      transition: .2s;
+  }
+}
+
+
+
+
+/* GENERAL STYLING */
 
 body {
     font-family: var(--ff-josefin-sans, sans-serif);
@@ -206,7 +230,7 @@ body {
 .main-heading {
   border: 2px solid var(--clr-white);
   color: var(--clr-white);
-  padding: 1rem;
+  padding: 1rem 3rem 1rem 1rem;
   display: inline-block;
   max-width: 16ch;
 }
@@ -214,10 +238,11 @@ body {
 /* INTRO */
 
 .intro {
-  --flow-space: 30em;
+  --flow-space: 65em;
   display: grid;
  
   @media (width > 50rem) {
+    --flow-space: 30em;
     grid-template-columns: repeat(24, 1fr);
     grid-template-rows: repeat(6, auto);
 
@@ -254,7 +279,7 @@ body {
 .intro-paragraph {
   --flow-space: 1.8em;
   color: var(--clr-very-dark-gray);
-  line-height: 1.3;
+  line-height: 1.5;
   font-family: var(--ff-alata);
 
   @media (width > 50rem) {
@@ -266,25 +291,43 @@ body {
 /* CREATIONS */
 
 .creations-intro {
+
+  @media (width > 50rem) {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+.creations-heading {
+  text-align: center;
+
+  @media (width > 50rem) {
+    text-align: left;
+  }
+}
+
+.all-creations-mobile-wrapper {
+  --flow-space: 2.5em;
   display: flex;
-  align-items: center;
+  justify-content: center;
+
+  @media (width > 50rem) {
+    display: none;
+  }
 }
 
-.all-creations {
-    border: 2px solid var(--clr-black);
-    padding: .5em 2em;
+.all-creations-desktop {
+  display: none;
+
+  @media (width > 50rem) {
     display: inline-block;
-    margin-left: auto;
-    font-family: var(--ff-alata);
-    letter-spacing: .2em;
-
-    &:hover {
-        background-color: var(--clr-black);
-        color: var(--clr-white);
-        transition: .2s;
-    }
+  }
 }
 
+
+.image-grid {
+  --flow-space: 2.5em;
+}
 
 .image-grid__list {
     display: grid;
